@@ -25,23 +25,23 @@ CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
 --batch_size 8 \
 --output_path $RESULT_DIR/$MODEL/0_shot.json
 
-# CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
-# --model hf-causal-experimental \
-# --model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
-# --tasks $TASKS \
-# --num_fewshot 5 \
-# --no_cache \
-# --batch_size 4 \
-# --output_path $RESULT_DIR/$MODEL/5_shot.json
+CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
+--model hf-causal-experimental \
+--model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
+--tasks $TASKS \
+--num_fewshot 5 \
+--no_cache \
+--batch_size 4 \
+--output_path $RESULT_DIR/$MODEL/5_shot.json
 
-# CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
-# --model hf-causal-experimental \
-# --model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
-# --tasks $TASKS \
-# --num_fewshot 10 \
-# --no_cache \
-# --batch_size 2 \
-# --output_path $RESULT_DIR/$MODEL/10_shot.json
+CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
+--model hf-causal-experimental \
+--model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
+--tasks $TASKS \
+--num_fewshot 10 \
+--no_cache \
+--batch_size 2 \
+--output_path $RESULT_DIR/$MODEL/10_shot.json
 
 # CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
 # --model hf-causal-experimental \

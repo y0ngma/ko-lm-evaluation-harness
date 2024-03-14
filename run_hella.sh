@@ -15,7 +15,8 @@ MODEL_PATH=$(echo $MODEL | awk -F/ '{print $(NF-1) "/" $NF}')
 echo "mkdir -p $RESULT_DIR/$MODEL_PATH/$CURRENT_TRAINED_TOKENS"
 mkdir -p $RESULT_DIR/$MODEL_PATH/$CURRENT_TRAINED_TOKENS
 
-CUDA_VISIBLE_DEVICES=$2 python main.py \
+SRC_DIR="/data/yhjeong/home/ko-lm-evaluation-harness"
+CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
 --model hf-causal-experimental \
 --model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
 --tasks $TASKS \
@@ -24,7 +25,7 @@ CUDA_VISIBLE_DEVICES=$2 python main.py \
 --batch_size 8 \
 --output_path $RESULT_DIR/$MODEL/0_shot.json
 
-CUDA_VISIBLE_DEVICES=$2 python main.py \
+CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
 --model hf-causal-experimental \
 --model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
 --tasks $TASKS \
@@ -33,7 +34,7 @@ CUDA_VISIBLE_DEVICES=$2 python main.py \
 --batch_size 4 \
 --output_path $RESULT_DIR/$MODEL/5_shot.json
 
-CUDA_VISIBLE_DEVICES=$2 python main.py \
+CUDA_VISIBLE_DEVICES=$2 python $SRC_DIR/main.py \
 --model hf-causal-experimental \
 --model_args pretrained=$MODEL,use_accelerate=true,trust_remote_code=true \
 --tasks $TASKS \
